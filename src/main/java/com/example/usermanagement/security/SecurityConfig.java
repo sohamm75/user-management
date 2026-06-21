@@ -30,7 +30,7 @@ public class SecurityConfig {
         .headers(headers -> headers.frameOptions().disable())
         .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/api/auth/**", "/h2-console/**").permitAll()
+        		.requestMatchers("/", "/api/auth/**", "/h2-console/**").permitAll()
             .requestMatchers("/api/user/**").hasRole("USER") 
             .requestMatchers("/api/admin/**").hasRole("ADMIN")
             .requestMatchers("/api/manager/**").hasRole("MANAGER")
